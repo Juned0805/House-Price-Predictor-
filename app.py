@@ -3,26 +3,22 @@ import joblib
 import logging
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
-import joblib
-
-#(LOADING NEW COMPRESSED FILE)
-model = joblib.load("models/indian_house_price_model.joblib")
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
 
-# Load the Indian-context model
+# Load the Indian-context model (.joblib)
 model = None
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'indian_house_price_model.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'indian_house_price_model.joblib')
 
 try:
     if os.path.exists(MODEL_PATH):
         model = joblib.load(MODEL_PATH)
         logging.info("Indian House Price Model loaded successfully.")
     else:
-        logging.warning("Model not found. Please run src/train.py first.")
+        logging.warning("Model not found. Please verify models/indian_house_price_model.joblib exists.")
 except Exception as e:
     logging.error(f"Error loading model: {e}")
 
