@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI House Price Predictor using Machine Learning">
+    <title>Indian AI House Price Predictor | Discover Market Value</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans for an ultra-premium feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Premium Boxicons instead of FontAwesome -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dark-theme">
+    
+    <!-- Animated Neon Blobs Background -->
+    <div class="blob-c">
+        <div class="shape blob1"></div>
+        <div class="shape blob2"></div>
+        <div class="shape blob3"></div>
+    </div>
+
+    <div class="container min-vh-100 d-flex flex-column justify-content-center py-5 position-relative z-1">
+        <header class="text-center mb-5">
+            <div class="badge premium-badge mb-3 shadow-none">
+                <i class='bx bx-hive me-1'></i> Neural Network Precision
+            </div>
+            <h1 class="display-4 fw-bold title-gradient mb-3">Estato.ai</h1>
+            <p class="lead text-light opacity-75 mx-auto" style="max-width: 600px; font-weight: 300;">
+                Harnessing real-time machine learning to deliver ultra-precise estimations for premium Indian real estate.
+            </p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7 mt-2">
+                <div class="card glass-card shadow-lg border-0 rounded-4 overflow-hidden">
+                    <div class="card-header bg-transparent border-0 pt-4 pb-0 px-4 px-md-5">
+                        <h5 class="mb-0 fw-semibold text-white d-flex align-items-center">
+                            <i class='bx bx-building-house fs-4 text-primary me-2'></i> Analytics Configuration
+                        </h5>
+                        <hr class="opacity-10 text-white mt-3 mb-0">
+                    </div>
+                    <div class="card-body p-4 p-md-5 pt-4">
+                        <form id="prediction-form">
+                            <div class="row g-4">
+                                
+                                <!-- Location -->
+                                <div class="col-md-6">
+                                    <label for="Location" class="form-label ms-1">Metropolitan City</label>
+                                    <div class="input-group custom-input-group">
+                                        <span class="input-group-text"><i class='bx bx-map'></i></span>
+                                        <select class="form-select" id="Location" name="Location" required>
+                                            <option value="Mumbai" selected>Mumbai, MH</option>
+                                            <option value="Delhi">New Delhi, DL</option>
+                                            <option value="Bangalore">Bangalore, KA</option>
+                                            <option value="Pune">Pune, MH</option>
+                                            <option value="Hyderabad">Hyderabad, TS</option>
+                                            <option value="Chennai">Chennai, TN</option>
+                                            <option value="Ahmedabad">Ahmedabad, GJ</option>
+                                            <option value="Kolkata">Kolkata, WB</option>
+                                            <option value="Surat">Surat, GJ</option>
+                                            <option value="Jaipur">Jaipur, RJ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- BHK -->
+                                <div class="col-md-6">
+                                    <label for="BHK" class="form-label ms-1">Configuration</label>
+                                    <div class="input-group custom-input-group">
+                                        <span class="input-group-text"><i class='bx bx-door-open'></i></span>
+                                        <select class="form-select" id="BHK" name="BHK" required>
+                                            <option value="1">1 BHK</option>
+                                            <option value="2">2 BHK</option>
+                                            <option value="2.5">2.5 BHK</option>
+                                            <option value="3" selected>3 BHK</option>
+                                            <option value="3.5">3.5 BHK</option>
+                                            <option value="4">4 BHK</option>
+                                            <option value="5">5 BHK+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- Area -->
+                                <div class="col-md-6">
+                                    <label for="SquareFootage" class="form-label ms-1">Carpet Area (Sq. Ft.)</label>
+                                    <div class="input-group custom-input-group">
+                                        <span class="input-group-text"><i class='bx bx-collapse'></i></span>
+                                        <input type="number" class="form-control" id="SquareFootage" name="SquareFootage" value="1200" min="200" required>
+                                    </div>
+                                </div>
+                                
+                                <!-- Construction Year -->
+                                <div class="col-md-6">
+                                    <label for="ConstructionYear" class="form-label ms-1">Construction Timeline</label>
+                                    <div class="input-group custom-input-group">
+                                        <span class="input-group-text"><i class='bx bx-calendar'></i></span>
+                                        <input type="number" class="form-control" id="ConstructionYear" name="ConstructionYear" value="2015" min="1950" max="2025" required>
+                                    </div>
+                                </div>
+                                
+                                <!-- Amenities -->
+                                <div class="col-12 mt-4 pt-2">
+                                    <label class="form-label fw-semibold d-block text-center mb-4">Select Associated Amenities</label>
+                                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-4">
+                                        <div class="amenity-toggle">
+                                            <input type="checkbox" id="HasParking" name="HasParking" checked>
+                                            <label for="HasParking">
+                                                <i class='bx bxs-parking fs-4'></i> 
+                                                <span>Dedicated Parking</span>
+                                                <span class="status-indicator"></span>
+                                            </label>
+                                        </div>
+                                        <div class="amenity-toggle">
+                                            <input type="checkbox" id="HasElevator" name="HasElevator" checked>
+                                            <label for="HasElevator">
+                                                <i class='bx bx-sort-down fs-4'></i> 
+                                                <span>Building Elevator</span>
+                                                <span class="status-indicator"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-5 pt-3">
+                                <button type="submit" class="btn btn-glow rounded-pill fw-bold" id="submit-btn">
+                                    <span class="btn-text d-flex justify-content-center align-items-center gap-2">
+                                        Evaluate Portfolio <i class='bx bx-right-arrow-alt fs-5'></i>
+                                    </span>
+                                    <span class="spinner-border spinner-border-sm d-none mx-auto" role="status" aria-hidden="true" id="loading-spinner"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Result Container -->
+                <div class="card result-card shadow-lg border-0 rounded-4 mt-4 d-none" id="result-container">
+                    <div class="card-body p-4 p-md-5 text-center position-relative overflow-hidden">
+                        
+                        <div class="badge premium-success-badge position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
+                            <i class='bx bx-check-circle me-1'></i> Successfully Scored
+                        </div>
+                        
+                        <p class="text-light opacity-50 text-uppercase tracking-wider fw-semibold mb-2 mt-4" style="letter-spacing: 2px; font-size: 0.8rem;">
+                            AI Extrapolated Market Value
+                        </p>
+                        
+                        <!-- Primary Rupee Value -->
+                        <h1 class="display-3 fw-bold mb-2 text-gradient-green" id="predicted-price">₹0.00</h1>
+                        
+                        <!-- Secondary Dollar Value -->
+                        <h4 class="text-light opacity-50 fw-light mb-0" id="predicted-price-usd">$0.00</h4>
+                        
+                    </div>
+                </div>
+                
+                <!-- Error Container -->
+                <div class="alert custom-error-alert shadow-lg rounded-4 mt-4 d-none border-0" id="error-container">
+                    <div class="d-flex align-items-center">
+                        <i class='bx bx-error-circle fs-2 me-3 text-white'></i>
+                        <div class="text-white">
+                            <h5 class="fw-bold mb-1">Process Halted</h5>
+                            <p class="mb-0 opacity-75" id="error-message">An unexpected error disrupted the evaluation.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

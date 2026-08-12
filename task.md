@@ -1,0 +1,22 @@
+# House Price Prediction App Tasks
+
+- `[x]` 1. Project Setup
+  - `[x]` Create folder structure
+  - `[x]` Create `requirements.txt`
+- `[x]` 2. Model Pipeline
+  - `[x]` Create `src/train.py`
+  - `[x]` Create EDA notebook structure 
+- `[x]` 3. Backend (Flask)
+  - `[x]` Create `app.py`
+  - `[x]` Configure model loading
+  - `[x]` Create `/predict` API route with input validation
+- `[x]` 4. Frontend
+  - `[x]` Create `templates/index.html`
+  - `[x]` Create `static/css/style.css`
+  - `[x]` Create `static/js/main.js`
+- `[x]` 5. Deployment & Docs
+  - `[x]` Create `Dockerfile`
+  - `[x]` Create `README.md`
+- `[/]` 6. Verification
+  - `[/]` Run `train.py`
+  - `[ ]` Test Flask app locally

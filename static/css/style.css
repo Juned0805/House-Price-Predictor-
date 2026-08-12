@@ -1,0 +1,269 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    --surface-glass: rgba(17, 24, 39, 0.7);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #8b5cf6;
+}
+
+body.dark-theme {
+    background-color: #030712;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Stunning Animated Background Orbs */
+.blob-c {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 20s infinite;
+}
+
+.blob1 {
+    width: 500px;
+    height: 500px;
+    background: #312e81;
+    top: -200px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.blob2 {
+    width: 400px;
+    height: 400px;
+    background: #4c1d95;
+    bottom: -150px;
+    right: -100px;
+    animation-delay: -5s;
+    animation-direction: reverse;
+}
+
+.blob3 {
+    width: 300px;
+    height: 300px;
+    background: #831843;
+    top: 40%;
+    left: 60%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Premium Typography Elements */
+.title-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-green {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.premium-badge {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
+    font-weight: 500;
+}
+
+.premium-success-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+/* Ultra Glass Card Edge */
+.glass-card, .result-card {
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--surface-border) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Inputs & Form Logic */
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.custom-input-group > * {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--surface-border) !important;
+    color: white !important;
+    padding: 0.9rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom-input-group .input-group-text {
+    border-right: none !important;
+    color: var(--text-muted) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.custom-input-group .form-control, .custom-input-group .form-select {
+    border-left: none !important;
+}
+
+.custom-input-group:focus-within > * {
+    border-color: var(--accent) !important;
+}
+.custom-input-group:focus-within .input-group-text {
+    color: var(--accent) !important;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+select.form-select option {
+    background-color: #111827;
+    color: white;
+}
+
+/* Custom Amenity Toggles (Extremely Obvious States) */
+.amenity-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.amenity-toggle label {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--surface-border);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 260px;
+}
+
+.amenity-toggle .status-indicator {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* UNCHECKED STATE (Red/Gray NO) */
+.amenity-toggle input[type="checkbox"]:not(:checked) + label .status-indicator {
+    background: rgba(220, 38, 38, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+.amenity-toggle input[type="checkbox"]:not(:checked) + label .status-indicator::after {
+    content: "NO";
+}
+
+/* CHECKED STATE (Green YES) */
+.amenity-toggle input[type="checkbox"]:checked + label {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: #10b981;
+    color: #f8fafc;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+}
+
+.amenity-toggle input[type="checkbox"]:checked + label i {
+    color: #10b981;
+}
+
+.amenity-toggle input[type="checkbox"]:checked + label .status-indicator {
+    background: #10b981;
+    color: #022c22;
+    border: 1px solid #34d399;
+}
+.amenity-toggle input[type="checkbox"]:checked + label .status-indicator::after {
+    content: "YES";
+}
+
+/* Glowing Submit Button */
+.btn-glow {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+    padding: 1.1rem 2rem;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, #ec4899 0%, #a855f7 50%, #6366f1 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    border-radius: 50rem;
+}
+
+.btn-glow:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(168, 85, 247, 0.4);
+}
+
+.btn-glow:hover::before {
+    opacity: 1;
+}
+
+/* Error Alert */
+.custom-error-alert {
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Animations */
+.result-card.fade-enter {
+    animation: scaleUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
